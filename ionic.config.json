@@ -1,0 +1,7 @@
+{
+  "name": "A3_Part2",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
