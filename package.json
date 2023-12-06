@@ -23,6 +23,7 @@
     "@angular/router": "^17.0.2",
     "@awesome-cordova-plugins/barcode-scanner": "^6.4.0",
     "@awesome-cordova-plugins/core": "^6.4.0",
+    "@awesome-cordova-plugins/device": "^6.4.0",
     "@awesome-cordova-plugins/device-orientation": "^6.4.0",
     "@awesome-cordova-plugins/email-composer": "^6.4.0",
     "@awesome-cordova-plugins/network": "^6.4.0",

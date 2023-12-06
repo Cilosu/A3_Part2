@@ -11,11 +11,21 @@ import { BarcodeScanner } from '@awesome-cordova-plugins/barcode-scanner/ngx';
 import { EmailComposer } from '@awesome-cordova-plugins/email-composer/ngx';
 import { DeviceOrientation, DeviceOrientationCompassHeading } from '@awesome-cordova-plugins/device-orientation/ngx';
 import { OCR, OCRSourceType } from '@awesome-cordova-plugins/ocr/ngx';
+import {Device} from '@awesome-cordova-plugins/device/ngx';
+import {Network} from '@awesome-cordova-plugins/network/ngx';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, BarcodeScanner, EmailComposer, DeviceOrientation, OCR],
+  providers: [
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    Device,
+    BarcodeScanner,
+    EmailComposer,
+    DeviceOrientation,
+    Network,
+    OCR
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
