@@ -1,0 +1,4 @@
+.disabled-button[disabled]  {
+  opacity: 0.6;  /* Adjust the opacity to your preference for the "grayed-out" effect */
+  cursor: not-allowed;
+}
