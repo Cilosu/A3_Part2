@@ -13,7 +13,29 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-button (click)="sendEmail()">Send Email</ion-button>
+
+<!--  A form to compose an email where you can input data for 'to', 'cc', 'bcc', 'subject' and 'body'. Has 2 way data binding   -->
+  <form #composeEmailForm="ngForm" (ngSubmit)="sendEmail(composeEmailForm)" style="margin: 10%">
+    <ion-input type="string" label="To " id="toRecipient" name="toRecipient" [(ngModel)]="toRecipient"></ion-input>
+
+    <ion-input type="string" label="cc " id="carbonCopy" name="carbonCopy" [(ngModel)]="carbonCopy"></ion-input>
+
+    <ion-input type="string" label="bcc " id="blindCarbonCopy" name="blindCarbonCopy" [(ngModel)]="blindCarbonCopy"></ion-input>
+
+    <ion-input type="string" label="Subject " id="subjectTitle" name="subjectTitle" [(ngModel)]="subjectTitle"></ion-input>
+
+    <ion-input type="string" label="Body " id="composeEmail" name="composeEmail" [(ngModel)]="emailBody"></ion-input>
+
+
+    <ion-button type="submit" color="default" size="small" shape="round" fill="outline">
+      <ion-icon name="submit"></ion-icon>
+      Submit
+    </ion-button>
+    <br>
+
+    {{ errorMessage }}
+
+  </form>
 
 
 </ion-content>
