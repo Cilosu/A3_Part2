@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 
 import { OCR, OCRSourceType } from '@awesome-cordova-plugins/ocr/ngx';
 import {OCRResult} from "@awesome-cordova-plugins/ocr";
+import { Camera, CameraOptions } from "@awesome-cordova-plugins/camera/ngx";
+
 
 @Component({
   selector: 'app-ocr',

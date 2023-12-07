@@ -15,6 +15,7 @@ import {Device} from '@awesome-cordova-plugins/device/ngx';
 import {Network} from '@awesome-cordova-plugins/network/ngx';
 import { Media, MediaObject } from '@awesome-cordova-plugins/media/ngx';
 import { TextToSpeechAdvanced } from '@awesome-cordova-plugins/text-to-speech-advanced/ngx';
+import { Camera } from "@awesome-cordova-plugins/camera/ngx";
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,7 +29,8 @@ import { TextToSpeechAdvanced } from '@awesome-cordova-plugins/text-to-speech-ad
     Network,
     OCR,
     Media,
-    TextToSpeechAdvanced
+    TextToSpeechAdvanced,
+    Camera
   ],
   bootstrap: [AppComponent],
 })
