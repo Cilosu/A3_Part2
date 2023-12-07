@@ -9,30 +9,47 @@ import {TTSOptions} from "@awesome-cordova-plugins/text-to-speech-advanced";
 })
 export class T2sPage {
 
+  logMessage: string = ""; // Variable to store log messages
 
-
-  textTest: string = "";
+  readText: string = ""; // Input variable for the text to be read
   speedRate: number = 1; // Default speed rate is set to 1
 
   constructor(private tts: TextToSpeechAdvanced) {
 
   }
 
+// Function to implement text-to-speech based on the provided input
   Listen(){
+    // Define options for text-to-speech
     const options: TTSOptions = {
-      text: this.textTest,
-      locale: 'en-US',
-      rate: this.speedRate,
+      text: this.readText,          // Text to be spoken
+      locale: 'en-US',              // Language locale (English - United States)
+      rate: this.speedRate,         // Speed rate of speech
       identifier: 'uniqueIdentifier' // Provide a unique identifier
     };
+    //If input field is empty
+    if (this.readText == "") {
+      this.logMessage = "Text-to-speech requires text to function."; //logs error message to user
+      return;
+    } else {
+    // Initiates the text-to-speech with the specified options
+    this.tts.speak(options).then(() => {
+      this.logMessage = "Text-to-speech finished."; //logs complete message to user
+    }).catch((reason: any) => {
+      // Log error message to user
+      this.logMessage = "Error during text-to-speech: " + reason;
+    });
+  }}
 
-    this.tts.speak(options).then(() =>
-    console.log("success")).catch((reason: any) => console.log(reason));
-  }
-
+  // Function to stop the current speech playback
   Stop(){
-
-    this.tts.speak(" ").then(() =>
-      console.log("success")).catch((reason: any) => console.log(reason));
-  }
+  // Initiates a text-to-speech operation with an empty string to stop playback
+    this.tts.speak(" ").then(() => {
+      // Log success message
+      this.logMessage = "Text-to-speech stopped"; //logs stopped message to user
+  }).catch((reason: any) => {
+  // Log error message to user
+  this.logMessage = "Error stopping playback: " + reason;
+});
+}
 }
