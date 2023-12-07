@@ -24,6 +24,8 @@ import {AppService} from "../app.service";
 
     <ion-button (click)="scanBarcode()">Scan Barcode</ion-button>
 
+    <p>Scanned Barcode details: {{ scannedBarcode }}</p> <!--  interpolation. getting the data that is scanned  -->
+
 
   </ion-content>
   `,
@@ -36,16 +38,22 @@ export class ScannerPage {
 
   getDeviceInfo()
   {
-    alert(this.appService.isConnected());
-    alert('Device UUID is: ' + this.device.uuid + this.network.type);
+    alert("Device connected to the network: " + this.appService.isConnected());
+    alert('Device UUID is: ' + this.device.uuid + " Network Type: " + this.network.type);
   }
 
-  /* scanBarcode - Actions to be performed once a barcode is scanned */
+  scannedBarcode: any; //setting a variable with an any type
+
+  /* scanBarcode - Once Barcode is scanned, the barcode details will show on the page using interpolation */
   scanBarcode(){
-    this.getDeviceInfo();
+    this.getDeviceInfo(); //
     this.barcodeScanner.scan().then(barcodeData => {
-      console.log('Barcode data', barcodeData);
-      alert(barcodeData);
+
+      this.scannedBarcode = barcodeData.text;   //assigning barcodeData.text (converts the scanned barcode object to text) to scannedBarcode.
+
+      console.log("Barcode data " + barcodeData.text);
+
+      //Change the catch/error????
     }).catch(err => {
       console.log('Error', err);
     });
