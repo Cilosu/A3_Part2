@@ -32,12 +32,10 @@ import {Observable, Subscription} from "rxjs";
 
 
     <!-- ROTATING COMPASS -->
-
-
       <div class="compass-container">
         <div class="compass">
-
           <div class="compass-background">
+            <!-- Image taken from wikicommons: https://en.wikipedia.org/wiki/Cardinal_direction#/media/File:Brosen_windrose.svg -->
             <ion-img src="assets/compass.png" class="compass-icon" [style.transform]="'rotate(' + (360 - heading) + 'deg)'"></ion-img>
           </div>
         </div>
@@ -65,26 +63,26 @@ export class CompassPage
   }
 
   /* ionViewDidEnter - Starts compass and prompts for calibration when opening this tab */
-  ionViewDidEnter()
+  ionViewDidEnter(): void
   {
     this.startCompass();
     alert("Please rotate your phone in a figure 8 to calibrate compass");
   }
 
   /* ionViewWillLeave - Stops compass when leaving this tab */
-  ionViewWillLeave()
+  ionViewWillLeave(): void
   {
     this.stopCompass();
   }
 
   /* stopCompass - Unsuscribe from compass changes */
-  stopCompass()
+  stopCompass(): void
   {
     this.subscription?.unsubscribe();
   }
 
   /* startCompass - Starts compass subscriptions */
-  startCompass()
+  startCompass(): void
   {
 
     // Set subscription to update when heading changes
