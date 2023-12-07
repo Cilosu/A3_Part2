@@ -22,7 +22,7 @@ import {AppService} from "../app.service";
       </ion-toolbar>
     </ion-header>
 
-    <ion-button (click)="scanBarcode()">Scan Barcode</ion-button>
+    <ion-button (click)="scanBarcode()">Scan Barcode</ion-button>  <!-- button to load barcode scanner. Onclick to trigger our scanBarcode() function -->
 
     <p>Scanned Barcode details: {{ scannedBarcode }}</p> <!--  interpolation. getting the data that is scanned  -->
 
@@ -34,26 +34,19 @@ import {AppService} from "../app.service";
 export class ScannerPage {
 
 
-  constructor(private appService: AppService, private network: Network, private device: Device, private barcodeScanner: BarcodeScanner) {}
-
-  getDeviceInfo()
-  {
-    alert("Device connected to the network: " + this.appService.isConnected());
-    alert('Device UUID is: ' + this.device.uuid + " Network Type: " + this.network.type);
-  }
+  constructor(private barcodeScanner: BarcodeScanner) {}
 
   scannedBarcode: any; //setting a variable with an any type
 
   /* scanBarcode - Once Barcode is scanned, the barcode details will show on the page using interpolation */
-  scanBarcode(){
-    this.getDeviceInfo(); //
+  scanBarcode(): void{
     this.barcodeScanner.scan().then(barcodeData => {
 
       this.scannedBarcode = barcodeData.text;   //assigning barcodeData.text (converts the scanned barcode object to text) to scannedBarcode.
 
-      console.log("Barcode data " + barcodeData.text);
+      //console.log("Barcode data " + barcodeData.text);  //unnecessary as we cant use web dev tools in app
 
-      //Change the catch/error????
+      //Change the catch/error?????
     }).catch(err => {
       console.log('Error', err);
     });

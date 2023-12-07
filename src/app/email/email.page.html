@@ -16,11 +16,13 @@
 
 <!--  A form to compose an email where you can input data for 'to', 'cc', 'bcc', 'subject' and 'body'. Has 2 way data binding   -->
   <form #composeEmailForm="ngForm" (ngSubmit)="sendEmail(composeEmailForm)" style="margin: 10%">
-    <ion-input type="string" label="To " id="toRecipient" name="toRecipient" [(ngModel)]="toRecipient"></ion-input>
 
-    <ion-input type="string" label="cc " id="carbonCopy" name="carbonCopy" [(ngModel)]="carbonCopy"></ion-input>
+    <!-- patten checks for a letter before and after the '@' and '.' using [a-zA-Z] and the '+' allows there to be more than one letter (bare min example needed: a@a.a). Reference: https://medium.com/@siddharthgov01/regular-expressions-from-a-za-z-88cf9cf0abac -->
+    <ion-input type="string" label="To " id="toRecipient" name="toRecipient" [(ngModel)]="toRecipient" pattern="[a-zA-Z]+@[a-zA-Z]+\.[a-zA-Z]+" required=""></ion-input>
 
-    <ion-input type="string" label="bcc " id="blindCarbonCopy" name="blindCarbonCopy" [(ngModel)]="blindCarbonCopy"></ion-input>
+    <ion-input type="string" label="cc " id="carbonCopy" name="carbonCopy" [(ngModel)]="carbonCopy" pattern="[a-zA-Z]+@[a-zA-Z]+\.[a-zA-Z]+"></ion-input>
+
+    <ion-input type="string" label="bcc " id="blindCarbonCopy" name="blindCarbonCopy" [(ngModel)]="blindCarbonCopy" pattern="[a-zA-Z]+@[a-zA-Z]+\.[a-zA-Z]+"></ion-input>
 
     <ion-input type="string" label="Subject " id="subjectTitle" name="subjectTitle" [(ngModel)]="subjectTitle"></ion-input>
 
@@ -33,7 +35,7 @@
     </ion-button>
     <br>
 
-    {{ errorMessage }}
+    {{ errorMessage }}    <!--interpolation. Pulling the error message and displaying it if error occurred -->
 
   </form>
 
