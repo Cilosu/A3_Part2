@@ -13,7 +13,11 @@ import { DeviceOrientation, DeviceOrientationCompassHeading } from '@awesome-cor
 import { OCR, OCRSourceType } from '@awesome-cordova-plugins/ocr/ngx';
 import {Device} from '@awesome-cordova-plugins/device/ngx';
 import {Network} from '@awesome-cordova-plugins/network/ngx';
+<<<<<<< HEAD
 import { Media, MediaObject } from '@awesome-cordova-plugins/media/ngx';
+=======
+import { TextToSpeechAdvanced } from '@awesome-cordova-plugins/text-to-speech-advanced/ngx';
+>>>>>>> f1d004fc3b0802c14fe48adf75a45bff658aeaf9
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,7 +30,11 @@ import { Media, MediaObject } from '@awesome-cordova-plugins/media/ngx';
     DeviceOrientation,
     Network,
     OCR,
+<<<<<<< HEAD
     Media
+=======
+    TextToSpeechAdvanced
+>>>>>>> f1d004fc3b0802c14fe48adf75a45bff658aeaf9
   ],
   bootstrap: [AppComponent],
 })
