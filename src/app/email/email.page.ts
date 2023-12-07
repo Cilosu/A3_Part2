@@ -20,8 +20,8 @@ export class EmailPage {
   errorMessage: string = "";
 
   /* Function called sendEmail that is type void, with one parameter called composeEmailForm that has a NgForm type.
-  * function gets the inputted values and if everything is valid from the form AND it has a recipient then it will sumbit.
-  * the submit will open a 3rd party app (eg mail/gmail) and the previously inputted values will be filled to send the email */
+  * function gets the inputted values and if everything is valid from the form AND it has a recipient then it will submit.
+  * The submit will open a 3rd party app (eg mail/gmail) and the previously inputted values will be filled to send the email */
   sendEmail(composeEmailForm: NgForm): void{
     //Using an if else statement for IF the form is valid then submit, ELSE a message will show
     if (composeEmailForm.valid){

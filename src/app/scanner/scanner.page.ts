@@ -33,12 +33,13 @@ import {AppService} from "../app.service";
 })
 export class ScannerPage {
 
-
   constructor(private barcodeScanner: BarcodeScanner) {}
 
-  scannedBarcode: any; //setting a variable with an any type
+  //setting a variable with an any type
+  scannedBarcode: any;
 
-  /* scanBarcode - Once Barcode is scanned, the barcode details will show on the page using interpolation */
+  /* function called scanBarcode with no parameters, and has a void type - Once Barcode is scanned, the barcode details
+      will show on the page using interpolation */
   scanBarcode(): void{
     this.barcodeScanner.scan().then(barcodeData => {
 
