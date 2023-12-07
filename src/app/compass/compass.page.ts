@@ -29,6 +29,7 @@ import {Observable, Subscription} from "rxjs";
 
     <!-- COMPASS HEADING INFORMATION -->
     <ion-content>
+
       <p>{{ direction }}</p>
       <p>{{ heading }}</p>
 
@@ -90,8 +91,8 @@ export class CompassPage
     this.subscription = this.deviceOrientation.watchHeading(options).subscribe(
       (data: DeviceOrientationCompassHeading) =>
       {
-        this.heading = data.magneticHeading // Updating numbered heading)
-        this.updateDirection();             // Update string direction
+        this.heading = Math.floor(data.magneticHeading * 10) / 10 // Updating numbered heading (rounded down to 1 decimal point)
+        this.updateDirection();                                      // Update string direction
       });
 
   }
