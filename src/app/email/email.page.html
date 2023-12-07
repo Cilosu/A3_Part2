@@ -19,10 +19,13 @@
 
     <!-- patten checks for a letter before and after the '@' and '.' using [a-zA-Z] and the '+' allows there to be more
     than one letter (bare min example needed for email address: a@a.a). '[^abc]*' allows for any character that isn't a letter due to '^'
-    and allows the non-letter to be used zero or many times due to '*'. I have not allowed special characters to be
+    and allows the character to be used zero or many times due to '*'. I have not allowed special characters to be
     used after the '@'.
-    Reference: https://medium.com/@siddharthgov01/regular-expressions-from-a-za-z-88cf9cf0abac -->
-    <ion-input type="string" label="To " id="toRecipient" name="toRecipient" [(ngModel)]="toRecipient" pattern="[^abc]*[a-zA-Z]+[^abc]*@[a-zA-Z]+\.[a-zA-Z]+" required=""></ion-input>
+    References:
+    https://medium.com/@siddharthgov01/regular-expressions-from-a-za-z-88cf9cf0abac
+    https://www.w3schools.com/jsref/jsref_obj_regexp.asp
+    -->
+    <ion-input type="string" label="To " id="toRecipient" name="toRecipient" [(ngModel)]="toRecipient" pattern="[^abc]*[a-zA-Z]+[^abc]*@[a-zA-Z]+\.[a-zA-Z]+" required=""></ion-input> <!-- required input for the form -->
 
     <ion-input type="string" label="cc " id="carbonCopy" name="carbonCopy" [(ngModel)]="carbonCopy" pattern="[^abc]*[a-zA-Z]+[^abc]*@[a-zA-Z]+\.[a-zA-Z]+"></ion-input>
 
