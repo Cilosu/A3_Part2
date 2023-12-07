@@ -24,7 +24,7 @@ import {AppService} from "../app.service";
 
     <ion-button (click)="scanBarcode()">Scan Barcode</ion-button>  <!-- button to load barcode scanner. Onclick to trigger our scanBarcode() function -->
 
-    <p>Scanned Barcode details: {{ scannedBarcode }}</p> <!--  interpolation. getting the data that is scanned  -->
+    <p>Scanned Barcode Details: {{ scannedBarcode }}</p> <!--  interpolation. getting the data that is scanned  -->
 
 
   </ion-content>
