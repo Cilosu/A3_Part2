@@ -10,8 +10,8 @@ import {TTSOptions} from "@awesome-cordova-plugins/text-to-speech-advanced";
 export class T2sPage {
 
 
-  // @ts-ignore
-  textTest: string;
+
+  textTest: string = "";
   speedRate: number = 1; // Default speed rate is set to 1
 
   constructor(private tts: TextToSpeechAdvanced) {
@@ -19,8 +19,20 @@ export class T2sPage {
   }
 
   Listen(){
-    // @ts-ignore
-    this.tts.speak({text:this.textTest, locale: 'en-US', rate:this.speedRate}).then(() =>
+    const options: TTSOptions = {
+      text: this.textTest,
+      locale: 'en-US',
+      rate: this.speedRate,
+      identifier: 'uniqueIdentifier' // Provide a unique identifier
+    };
+
+    this.tts.speak(options).then(() =>
     console.log("success")).catch((reason: any) => console.log(reason));
+  }
+
+  Stop(){
+
+    this.tts.speak(" ").then(() =>
+      console.log("success")).catch((reason: any) => console.log(reason));
   }
 }
