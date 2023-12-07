@@ -83,9 +83,11 @@ export class CompassPage
   /* startCompass - Starts compass subscriptions */
   startCompass(): void
   {
+    // Updates every 100 milliseconds
+    const options: any = { frequency: 100 };
 
     // Set subscription to update when heading changes
-    this.subscription = this.deviceOrientation.watchHeading().subscribe(
+    this.subscription = this.deviceOrientation.watchHeading(options).subscribe(
       (data: DeviceOrientationCompassHeading) =>
       {
         this.heading = data.magneticHeading // Updating numbered heading)
