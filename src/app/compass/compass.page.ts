@@ -4,7 +4,8 @@ import {Observable, Subscription} from "rxjs";
 
 @Component({
   selector: 'app-compass',
-  template: `<ion-header [translucent]="true">
+  template: `
+    <ion-header [translucent]="true">
     <ion-toolbar>
       <ion-title>
         Compass
@@ -24,9 +25,10 @@ import {Observable, Subscription} from "rxjs";
     </ion-header>
     <!-- HEADER END -->
 
+    <!-- COMPASS START -->
+
     <!-- COMPASS HEADING INFORMATION -->
     <ion-content>
-
       <p>{{ direction }}</p>
       <p>{{ heading }}</p>
 
@@ -42,6 +44,8 @@ import {Observable, Subscription} from "rxjs";
       </div>
     </ion-content>
 
+    <!-- COMPASS END -->
+
 
 </ion-content>
   `,
@@ -49,14 +53,9 @@ import {Observable, Subscription} from "rxjs";
 })
 export class CompassPage
 {
-
-
-  // Compass heading (in numbers)
-
-
-  heading: number = 0;
+  heading: number = 0;    // Compass heading (in numbers)
+  direction: string = ''  // Compass Direction (String)
   subscription?: Subscription;
-  direction: string = ''
 
   constructor(private deviceOrientation: DeviceOrientation)
   {

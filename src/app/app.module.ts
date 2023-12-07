@@ -13,6 +13,7 @@ import { DeviceOrientation, DeviceOrientationCompassHeading } from '@awesome-cor
 import { OCR, OCRSourceType } from '@awesome-cordova-plugins/ocr/ngx';
 import {Device} from '@awesome-cordova-plugins/device/ngx';
 import {Network} from '@awesome-cordova-plugins/network/ngx';
+import { Media, MediaObject } from '@awesome-cordova-plugins/media/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,7 +25,8 @@ import {Network} from '@awesome-cordova-plugins/network/ngx';
     EmailComposer,
     DeviceOrientation,
     Network,
-    OCR
+    OCR,
+    Media
   ],
   bootstrap: [AppComponent],
 })
