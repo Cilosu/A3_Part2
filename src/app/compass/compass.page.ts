@@ -93,6 +93,12 @@ export class CompassPage
       {
         this.heading = Math.floor(data.magneticHeading * 10) / 10 // Updating numbered heading (rounded down to 1 decimal point)
         this.updateDirection();                                      // Update string direction
+      },
+
+      // Error call back makes an alert with error
+      (error: any) =>
+      {
+        alert(error);
       });
 
   }
