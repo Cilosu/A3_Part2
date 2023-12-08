@@ -34,11 +34,25 @@ export class EmailPage {
         isHtml: true
       }
       this.emailComposer.open(email);
-
+      //cchecks if is empty
+    }else if(this.toRecipient === ""){
+      this.errorMessage = "To send an email you must have the 'To' field filled with a real email address.";
+      //checks if variables are truthy/true (checks between 3 different variables using OR statements)
+    }else if(this.carbonCopy || this.blindCarbonCopy || this.toRecipient){
+      this.errorMessage = "You need a real email address.";
     }else{
-      this.errorMessage = "You must have a recipient!";
+      this.errorMessage = "An error occurred."
     }
+  }
 
+  /*A function called clearFields with a void type. This function clears all filled fields. Makes them empty*/
+  clearFields():void{
+    this.toRecipient = "";
+    this.subjectTitle = "";
+    this.carbonCopy = "";
+    this.blindCarbonCopy = "";
+    this.emailBody = "";
+    this.errorMessage = "";   //why you no work for the error message?? Herp derp.
   }
 
 }
