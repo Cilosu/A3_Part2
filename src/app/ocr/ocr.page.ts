@@ -4,6 +4,7 @@ import { OCR, OCRSourceType } from '@awesome-cordova-plugins/ocr/ngx';
 import {OCRResult} from "@awesome-cordova-plugins/ocr";
 import { Camera, CameraOptions } from "@awesome-cordova-plugins/camera/ngx";
 
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-ocr',
@@ -17,20 +18,19 @@ export class OcrPage {
   extractionError: string = "";
   logMessage: string = "";
 
-  constructor(private cam : Camera, private ocr: OCR, private el: ElementRef) {}
+  constructor(private cam : Camera, private ocr: OCR) {}
 
 
   takePhoto() {
     const options: CameraOptions = {
-      quality: 100,
+      quality: 50,
       correctOrientation: true,
-      destinationType: this.cam.DestinationType.DATA_URL,
+      destinationType: this.cam.DestinationType.FILE_URI,
     };
 
     this.cam.getPicture(options).then(
 
       (imageData) => {
-        this.capturedImage = 'data:image/jpeg;base64,' + imageData;
         this.onSuccess(imageData);
       },
       (error) => this.onFail(error)
@@ -43,7 +43,6 @@ export class OcrPage {
 
     this.cam.getPicture(options).then(
       (imageData) => {
-        this.capturedImage = 'data:image/jpeg;base64,' + imageData;
         this.logMessage = 'Image selected successfully.';
         this.onSuccess(imageData);
       },
@@ -54,14 +53,14 @@ export class OcrPage {
   setOptions(srcType: number) {
     return {
       quality: 50,
-      destinationType: this.cam.DestinationType.DATA_URL,
+      destinationType: this.cam.DestinationType.FILE_URI,
       sourceType: srcType,
       encodingType: this.cam.EncodingType.JPEG,
       mediaType: this.cam.MediaType.PICTURE,
-      allowEdit: true,
       correctOrientation: true,
     };
   }
+
 
   onSuccess(imageData: string) {
     this.ocr.recText(OCRSourceType.NORMFILEURL, imageData).then(
@@ -78,13 +77,10 @@ export class OcrPage {
       allLines = allLines + element + '\n';
     });
 
-    const outputElement: HTMLElement = this.el.nativeElement.querySelector('#output');
-    if (outputElement) {
-      outputElement.innerHTML = allLines;
-      this.extractedText = allLines;
-      this.logMessage = 'Text extracted successfully.';
+    this.extractedText = allLines;
+    this.logMessage = 'Text extracted successfully.';
     }
-  }
+
 
   onFail(error: any) {
     this.logMessage = `Error getting picture: ${error}`;    // Handle error as needed
