@@ -7,28 +7,7 @@ import { BarcodeScanner } from '@awesome-cordova-plugins/barcode-scanner/ngx';
 import {AppService} from "../app.service";
 @Component({
   selector: 'app-scanner',
-  template: `<ion-header [translucent]="true">
-    <ion-toolbar>
-      <ion-title>
-        Scanner
-      </ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <ion-content [fullscreen]="true">
-    <ion-header collapse="condense">
-      <ion-toolbar>
-        <ion-title size="large">Scanner</ion-title>
-      </ion-toolbar>
-    </ion-header>
-
-    <ion-button (click)="scanBarcode()">Scan Barcode</ion-button>  <!-- button to load barcode scanner. Onclick to trigger our scanBarcode() function -->
-
-    <p>Scanned Barcode Details: {{ scannedBarcode }}</p> <!--  interpolation. getting the data that is scanned  -->
-
-
-  </ion-content>
-  `,
+  templateUrl: 'scanner.page.html',
   styleUrls: ['scanner.page.scss']
 })
 export class ScannerPage {
