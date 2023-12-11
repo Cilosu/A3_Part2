@@ -30,7 +30,7 @@ export class EmailPage {
         cc: this.carbonCopy,
         bcc: this.blindCarbonCopy,
         subject: this.subjectTitle,
-        body: this.emailBody,
+        body: this.emailBody.replace(/\n/g, '<br>'), //replacing the newline/linebreak (\n) character with break line (<br>) as linebreaks/paragraphs weren't compatible when going to a 3rd party mail app.
         isHtml: true
       }
       this.emailComposer.open(email);
@@ -52,7 +52,7 @@ export class EmailPage {
     this.carbonCopy = "";
     this.blindCarbonCopy = "";
     this.emailBody = "";
-    this.errorMessage = "";   //why you no work for the error message?? Herp derp.
+    this.errorMessage = "";
   }
 
 }
