@@ -13,48 +13,55 @@
     </ion-toolbar>
   </ion-header>
 
+  <!--      divs are purely for css styling-->
+  <div class="container">
+    <div class="content">
 
-<!--  A form to compose an email where you can input data for 'to', 'cc', 'bcc', 'subject' and 'body'. Has 2 way data binding   -->
-  <form #composeEmailForm="ngForm" (ngSubmit)="sendEmail(composeEmailForm)" style="margin: 10%">
+      <!--  A form to compose an email where you can input data for 'to', 'cc', 'bcc', 'subject' and 'body'. Has 2 way data binding   -->
+      <form #composeEmailForm="ngForm" (ngSubmit)="sendEmail(composeEmailForm)" style="margin: 10%">
 
-    <!-- patten checks for a letter before and after the '@' and '.' using [a-zA-Z] and the '+' allows there to be more
-    than one letter (bare min example needed for email address: a@a.aa). '[^]*' allows for any character that isn't a letter
-    due to '^' hence they cant use '@' '(' ')' in the area specified, and allows the character to be used zero or
-    many times due to '*'. I have not allowed special characters to be
-    used after the '@' and '.'.
-    [a-zA-Z]{2,} means you must have 2 letters as a minimum.
-    NOTE: If its not classified as a proper email then it wont pull across... my pattern is not perfect but it does get rid of many non emails. Also, I could probably refine this pattern with more time!
-    References:
-    https://medium.com/@siddharthgov01/regular-expressions-from-a-za-z-88cf9cf0abac
-    https://www.w3schools.com/jsref/jsref_obj_regexp.asp
-    https://gist.github.com/cgkio/7268045     //found this later! wish i found it earlier!
-    -->
-    <ion-input type="string" label="To " id="toRecipient" name="toRecipient" [(ngModel)]="toRecipient" pattern="[^@,()]*[a-zA-Z]+[^@,]*@[a-zA-Z]+\.[a-zA-Z]{2,}" required=""></ion-input> <!-- required input for the form -->
+        <!-- patten checks for a letter before and after the '@' and '.' using [a-zA-Z] and the '+' allows there to be more
+        than one letter (bare min example needed for email address: a@a.aa). '[^]*' allows for any character that isn't a letter
+        due to '^' hence they cant use '@' '(' ')' in the area specified, and allows the character to be used zero or
+        many times due to '*'. I have not allowed special characters to be
+        used after the '@' and '.'.
+        [a-zA-Z]{2,} means you must have 2 letters as a minimum.
+        NOTE: If its not classified as a proper email then it wont pull across... my pattern is not perfect but it does get rid of many non emails. Also, I could probably refine this pattern with more time!
+        References:
+        https://medium.com/@siddharthgov01/regular-expressions-from-a-za-z-88cf9cf0abac
+        https://www.w3schools.com/jsref/jsref_obj_regexp.asp
+        https://gist.github.com/cgkio/7268045     //found this later! wish i found it earlier!
+        -->
+        <ion-input type="string" label="To " id="toRecipient" name="toRecipient" [(ngModel)]="toRecipient" pattern="[^@,()]*[a-zA-Z]+[^@,]*@[a-zA-Z]+\.[a-zA-Z]{2,}" required=""></ion-input> <!-- required input for the form -->
 
-    <ion-input type="string" label="Cc " id="carbonCopy" name="carbonCopy" [(ngModel)]="carbonCopy" pattern="[^@,()]*[a-zA-Z]+[^@,]*@[a-zA-Z]+\.[a-zA-Z]{2,}"></ion-input>
+        <ion-input type="string" label="Cc " id="carbonCopy" name="carbonCopy" [(ngModel)]="carbonCopy" pattern="[^@,()]*[a-zA-Z]+[^@,]*@[a-zA-Z]+\.[a-zA-Z]{2,}"></ion-input>
 
-    <ion-input type="string" label="Bcc " id="blindCarbonCopy" name="blindCarbonCopy" [(ngModel)]="blindCarbonCopy" pattern="[^@,()]*[a-zA-Z]+[^@,]*@[a-zA-Z]+\.[a-zA-Z]{2,}"></ion-input>
+        <ion-input type="string" label="Bcc " id="blindCarbonCopy" name="blindCarbonCopy" [(ngModel)]="blindCarbonCopy" pattern="[^@,()]*[a-zA-Z]+[^@,]*@[a-zA-Z]+\.[a-zA-Z]{2,}"></ion-input>
 
-    <ion-input type="string" label="Subject " id="subjectTitle" name="subjectTitle" [(ngModel)]="subjectTitle"></ion-input>
+        <ion-input type="string" label="Subject " id="subjectTitle" name="subjectTitle" [(ngModel)]="subjectTitle"></ion-input>
 
-    <ion-textarea rows="6" type="string" label="Body " id="composeEmail" name="composeEmail" [(ngModel)]="emailBody"></ion-textarea>   <!--changed input to textarea so I could add rows for better user experience. aka user can better see what they have typed-->
+        <ion-textarea rows="6" type="string" label="Body " id="composeEmail" name="composeEmail" [(ngModel)]="emailBody"></ion-textarea>   <!--changed input to textarea so I could add rows for better user experience. aka user can better see what they have typed-->
 
-<!--    Submit button to submit the form-->
-    <ion-button type="submit" color="default" size="small" shape="round" fill="outline">
-      <ion-icon name="send-outline"></ion-icon>
-      Submit
-    </ion-button>
+       <!--    Submit button to submit the form-->
+        <ion-button type="submit" size="small" shape="round">
+          <ion-icon name="send-outline"></ion-icon>
+          Submit
+        </ion-button>
 
-<!--    Clear button that clears the inputs of the form-->
-    <ion-button type="button" color="default" size="small" shape="round" fill="outline" (click)="clearFields()">
-      <ion-icon name="trash-outline"></ion-icon>
-      Clear
-    </ion-button>
-    <br>
+       <!--    Clear button that clears the inputs of the form-->
+        <ion-button type="button" size="small" shape="round" (click)="clearFields()">
+          <ion-icon name="trash-outline"></ion-icon>
+          Clear
+        </ion-button>
+        <br>
 
-    {{ errorMessage }}    <!--interpolation. Pulling the error message and displaying it if error occurred -->
+        {{ errorMessage }}    <!--interpolation. Pulling the error message and displaying it if error occurred -->
 
-  </form>
+      </form>
+
+    </div>
+  </div>
+
 
 
 </ion-content>

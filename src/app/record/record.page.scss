@@ -2,3 +2,13 @@
   opacity: 0.6;  /* Adjust the opacity to your preference for the "grayed-out" effect */
   cursor: not-allowed;
 }
+
+
+//centering the whole page (relative to device hence height:100%)
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+

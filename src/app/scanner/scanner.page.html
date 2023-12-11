@@ -13,9 +13,20 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-button (click)="scanBarcode()">Scan Barcode</ion-button>  <!-- button to load barcode scanner. Onclick to trigger our scanBarcode() function -->
+  <!--      divs are purely for css styling-->
+  <div class="container">
+    <div class="content">
 
-  <p>Scanned Barcode Details: {{ scannedBarcode }}</p> <!--  interpolation. getting the data that is scanned  -->
+      <ion-button size="small" shape="round" (click)="scanBarcode()">
+        <ion-icon name="scan-circle-outline"></ion-icon>
+        Scan Barcode
+      </ion-button>  <!-- button to load barcode scanner. Onclick to trigger our scanBarcode() function -->
 
+      <h4>Scanned Barcode Details: </h4>
+      <p> {{ scannedBarcode }}</p> <!--  interpolation. getting the data that is scanned  -->
+
+    </div>
+  </div>
 
 </ion-content>
+

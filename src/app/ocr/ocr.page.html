@@ -13,20 +13,34 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-button (click)="takePhoto()">Take Photo</ion-button>
-  <ion-button (click)="selectPhoto()">Select a Photo</ion-button>
+  <!--      divs are purely for css styling-->
+  <div class="container">
+    <div class="content">
 
-  <ion-img *ngIf="capturedImage" [src]="capturedImage"></ion-img>
-  
-  <ion-card *ngIf="extractedText">
-    <ion-card-header>
-      Extracted Text
-    </ion-card-header>
-    <ion-card-content>
-      {{ extractedText }}
-    </ion-card-content>
-  </ion-card>
+      <ion-button size="small" shape="round" (click)="takePhoto()">
+        <ion-icon name="camera-outline"></ion-icon>
+        Take Photo
+      </ion-button>
 
-  <p>{{ logMessage }}</p>
+      <ion-button size="small" shape="round" (click)="selectPhoto()">
+        <ion-icon name="image-outline"></ion-icon>
+        Select a Photo
+      </ion-button>
+
+      <ion-img *ngIf="capturedImage" [src]="capturedImage"></ion-img>
+
+      <ion-card *ngIf="extractedText">
+        <ion-card-header>
+          Extracted Text
+        </ion-card-header>
+        <ion-card-content>
+          {{ extractedText }}
+        </ion-card-content>
+      </ion-card>
+
+      <p>{{ logMessage }}</p>
+
+    </div>
+  </div>
 
 </ion-content>

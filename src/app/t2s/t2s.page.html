@@ -7,6 +7,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+
   <br>
   <ion-item>
     <ion-label position="floating">Enter Text</ion-label>
@@ -21,8 +22,15 @@
     </ion-range>
   </ion-item>
 
-  <ion-button expand="full" (click)="Listen()">Listen</ion-button>
-  <ion-button expand="full" (click)="Stop()">Stop</ion-button>
+  <ion-button expand="full" (click)="Listen()">
+<!--    <ion-icon name="musical-note-outline"></ion-icon>-->
+     Listen
+  </ion-button>
+
+  <ion-button expand="full" (click)="Stop()">
+<!--    <ion-icon name="volume-mute-outline"></ion-icon>-->
+     Stop
+  </ion-button>
 
   <p>{{ logMessage }}</p>
 

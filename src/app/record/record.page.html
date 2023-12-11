@@ -23,11 +23,32 @@
     </ion-header>
     <!-- HEADER END -->
 
+
+
     <!-- BUTTONS START -->
     <ion-content>
-      <ion-button (click)="recordButtonHandler()">{{recordButton}}</ion-button>
-      <ion-button [disabled]="isRecording || !mediaExists" (click)="playRecording()">Play</ion-button>
+
+      <!--      divs are purely for css styling-->
+      <div class="container">
+        <div class="content">
+
+      <ion-button size="small" shape="round" (click)="recordButtonHandler()">
+        <ion-icon name="play-outline"></ion-icon>
+        {{recordButton}}
+      </ion-button>
+
+      <ion-button size="small" shape="round" [disabled]="isRecording || !mediaExists" (click)="playRecording()">
+        <ion-icon name="musical-notes-outline"></ion-icon>
+        Play
+      </ion-button>
+
+        </div>
+      </div>
+
     </ion-content>
+
+
+
   </ion-content>
   <!-- BUTTONS END -->
 

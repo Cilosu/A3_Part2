@@ -1,0 +1,7 @@
+//centering the whole page (relative to device hence height:100%)
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
