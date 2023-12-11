@@ -18,22 +18,24 @@
   <form #composeEmailForm="ngForm" (ngSubmit)="sendEmail(composeEmailForm)" style="margin: 10%">
 
     <!-- patten checks for a letter before and after the '@' and '.' using [a-zA-Z] and the '+' allows there to be more
-    than one letter (bare min example needed for email address: a@a.a). '[^]*' allows for any character that isn't a letter due to '^'
-    and allows the character to be used zero or many times due to '*'. I have not allowed special characters to be
+    than one letter (bare min example needed for email address: a@a.a). '[^]*' allows for any character that isn't a letter
+    due to '^' hence they cant use '@' '(' ')' in the area specified, and allows the character to be used zero or
+    many times due to '*'. I have not allowed special characters to be
     used after the '@' and '.'.
+    NOTE: If its not classified as a proper email then it wont pull across... my patter is not perfect but it does get rid of many non emails. Also, I could probably refine this pattern with more time!
     References:
     https://medium.com/@siddharthgov01/regular-expressions-from-a-za-z-88cf9cf0abac
     https://www.w3schools.com/jsref/jsref_obj_regexp.asp
     -->
-    <ion-input type="string" label="To " id="toRecipient" name="toRecipient" [(ngModel)]="toRecipient" pattern="[^]*[a-zA-Z]+[^]*@[a-zA-Z]+\.[a-zA-Z]+" required=""></ion-input> <!-- required input for the form -->
+    <ion-input type="string" label="To " id="toRecipient" name="toRecipient" [(ngModel)]="toRecipient" pattern="[^@,()]*[a-zA-Z]+[^@,]*@[a-zA-Z]+\.[a-zA-Z]+" required=""></ion-input> <!-- required input for the form -->
 
-    <ion-input type="string" label="cc " id="carbonCopy" name="carbonCopy" [(ngModel)]="carbonCopy" pattern="[^]*[a-zA-Z]+[^]*@[a-zA-Z]+\.[a-zA-Z]+"></ion-input>
+    <ion-input type="string" label="cc " id="carbonCopy" name="carbonCopy" [(ngModel)]="carbonCopy" pattern="[^@,()]*[a-zA-Z]+[^@,]*@[a-zA-Z]+\.[a-zA-Z]+"></ion-input>
 
-    <ion-input type="string" label="bcc " id="blindCarbonCopy" name="blindCarbonCopy" [(ngModel)]="blindCarbonCopy" pattern="[^]*[a-zA-Z]+[^]*@[a-zA-Z]+\.[a-zA-Z]+"></ion-input>
+    <ion-input type="string" label="bcc " id="blindCarbonCopy" name="blindCarbonCopy" [(ngModel)]="blindCarbonCopy" pattern="[^@,()]*[a-zA-Z]+[^@,]*@[a-zA-Z]+\.[a-zA-Z]+"></ion-input>
 
     <ion-input type="string" label="Subject " id="subjectTitle" name="subjectTitle" [(ngModel)]="subjectTitle"></ion-input>
 
-    <ion-textarea rows="10" type="string" label="Body " id="composeEmail" name="composeEmail" [(ngModel)]="emailBody"></ion-textarea>
+    <ion-textarea rows="6" type="string" label="Body " id="composeEmail" name="composeEmail" [(ngModel)]="emailBody"></ion-textarea>   <!--changed input to textarea so I could add rows for better user experience. aka user can better see what they have typed-->
 
 <!--    Submit button to submit the form-->
     <ion-button type="submit" color="default" size="small" shape="round" fill="outline">
