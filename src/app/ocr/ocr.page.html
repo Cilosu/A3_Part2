@@ -27,18 +27,19 @@
         Select a Photo
       </ion-button>
 
-      <ion-card *ngIf="extractedText">
-        <ion-card-header>
-          Extracted Text
-        </ion-card-header>
-        <ion-card-content>
-          {{ extractedText }}
-        </ion-card-content>
-      </ion-card>
-
-      <p>{{ logMessage }}</p>
-
     </div>
   </div>
+
+
+  <ion-card *ngIf="extractedText">
+    <ion-card-header>
+      Extracted Text
+    </ion-card-header>
+    <ion-card-content>
+      {{ extractedText }}
+    </ion-card-content>
+  </ion-card>
+
+  <p>{{ logMessage }}</p>
 
 </ion-content>
