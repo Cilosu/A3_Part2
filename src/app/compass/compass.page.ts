@@ -4,52 +4,7 @@ import {Observable, Subscription} from "rxjs";
 
 @Component({
   selector: 'app-compass',
-  template: `
-    <ion-header [translucent]="true">
-    <ion-toolbar>
-      <ion-title>
-        Compass
-      </ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-
-  <!-- CONTENT START -->
-  <ion-content [fullscreen]="true">
-
-    <!-- HEADER START -->
-    <ion-header collapse="condense">
-      <ion-toolbar>
-        <ion-title size="large">Compass</ion-title>
-      </ion-toolbar>
-    </ion-header>
-    <!-- HEADER END -->
-
-    <!-- COMPASS START -->
-
-    <!-- COMPASS HEADING INFORMATION -->
-    <ion-content>
-
-      <p>{{ direction }}</p>
-      <p>{{ heading }}</p>
-
-
-    <!-- ROTATING COMPASS -->
-      <div class="compass-container">
-        <div class="compass">
-          <div class="compass-background">
-            <!-- Image taken from wikicommons: https://en.wikipedia.org/wiki/Cardinal_direction#/media/File:Brosen_windrose.svg -->
-            <ion-img src="assets/compass.png" class="compass-icon" [style.transform]="'rotate(' + (360 - heading) + 'deg)'"></ion-img>
-          </div>
-        </div>
-      </div>
-    </ion-content>
-
-    <!-- COMPASS END -->
-
-
-</ion-content>
-  `,
+  templateUrl: 'compass.page.html',
   styleUrls: ['compass.page.scss']
 })
 export class CompassPage

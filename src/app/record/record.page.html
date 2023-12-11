@@ -1,16 +1,34 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Record
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Record</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <!-- CONTENT START -->
+  <ion-header [translucent]="true">
+    <ion-toolbar>
+      <ion-title>
+        Record
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <!-- HEADER START -->
+  <ion-content [fullscreen]="true">
+    <ion-header collapse="condense">
+      <ion-toolbar>
+        <ion-title size="large">RECORD</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <!-- HEADER END -->
+
+    <!-- BUTTONS START -->
+    <ion-content>
+      <ion-button (click)="recordButtonHandler()">{{recordButton}}</ion-button>
+      <ion-button [disabled]="isRecording || !mediaExists" (click)="playRecording()">Play</ion-button>
+    </ion-content>
+  </ion-content>
+  <!-- BUTTONS END -->
 
 </ion-content>

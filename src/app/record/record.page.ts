@@ -5,35 +5,7 @@ import {play} from "ionicons/icons";
 
 @Component({
   selector: 'app-record',
-  template: `
-
-    <!-- CONTENT START -->
-    <ion-header [translucent]="true">
-      <ion-toolbar>
-        <ion-title>
-          Record
-        </ion-title>
-      </ion-toolbar>
-    </ion-header>
-
-    <!-- HEADER START -->
-    <ion-content [fullscreen]="true">
-      <ion-header collapse="condense">
-        <ion-toolbar>
-          <ion-title size="large">RECORD</ion-title>
-        </ion-toolbar>
-      </ion-header>
-      <!-- HEADER END -->
-
-      <!-- BUTTONS START -->
-      <ion-content>
-        <ion-button (click)="recordButtonHandler()">{{recordButton}}</ion-button>
-        <ion-button [disabled]="isRecording || !mediaExists" (click)="playRecording()">Play</ion-button>
-      </ion-content>
-    </ion-content>
-    <!-- BUTTONS END -->
-
-  `,
+  templateUrl: 'record.page.html',
   styleUrls: ['record.page.scss']
 })
 export class RecordPage
