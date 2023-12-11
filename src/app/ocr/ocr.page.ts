@@ -12,7 +12,6 @@ import { Camera, CameraOptions } from "@awesome-cordova-plugins/camera/ngx";
 export class OcrPage {
 
   // Variables to store image data, extracted text, and log messages
-  capturedImage: string = "";
   extractedText: string = "";
   logMessage: string = "";
 
